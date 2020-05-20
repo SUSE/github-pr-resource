@@ -33,10 +33,6 @@ Loop:
 		if request.Source.BaseBranch != "" && p.PullRequestObject.BaseRefName != request.Source.BaseBranch {
 			continue
 		}
-		// Filter out commits that are too old.
-		if !p.Tip.CommittedDate.Time.After(request.Version.CommittedDate) {
-			continue
-		}
 
 		// Filter out pull request if it does not contain at least one of the desired labels
 		if len(request.Source.Labels) > 0 {
