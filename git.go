@@ -87,7 +87,7 @@ func (g *GitClient) Pull(uri, branch string, depth int, submodules bool) error {
 		return err
 	}
 
-	args := []string{"pull", endpoint + ".git", branch}
+	args := []string{"pull", "--tags", endpoint + ".git", branch}
 	if depth > 0 {
 		args = append(args, "--depth", strconv.Itoa(depth))
 	}
